@@ -1,4 +1,4 @@
-# shellcheck shell=bash
+ERMUX_APP_PACKAGE="com.aistudio.materialshell.zkjbx"# shellcheck shell=bash
 # shellcheck disable=SC2034
 
 # XXX: This file is sourced by repology-updater script
