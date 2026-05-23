@@ -1,0 +1,17 @@
+name: Build Bootstrap
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build aarch64 bootstrap
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y qemu-user-static
+          ./scripts/run-docker.sh ./scripts/build-bootstraps.sh --architectures aarch64
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: custom-bootstrap
+          path: bootstrap-aarch64.zip
